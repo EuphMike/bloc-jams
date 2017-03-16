@@ -1,0 +1,43 @@
+html {
+    height: 100%; /* makes sure our HTML takes up 100% of the browser windows */
+    font-size: 100$;
+}
+body {
+    font-family: 'Open Sans';/* sets our font to Open Sans typeface*/
+    color: white; /* sets font color to white */
+    min-height: 100% /* says the height of the body must be at least 100% of window */
+}
+body.landing{
+    background-color: rgb(58,23,63); /* sets the backround color using RGB values*/
+}
+.navbar {
+    padding: 0.5rem;
+    background-color: rgb(101,18,95);
+}
+.navbar .logo{
+    position: relative;
+    left: 2rem; 
+}  
+.hero-content{
+    position: relative;
+    min-height: 600px;
+    background-image: url(../assets/images/bloc_jams_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.hero-content .hero-title{
+    position: absolute;
+    top: 40%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    text-shadow: 1px 1px 0px rgb(58,23,64);
+}
