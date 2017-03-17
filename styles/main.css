@@ -21,9 +21,9 @@ body {
 }
 
 /* Medium screens (640px) */
-@media (min-width:640px){
+@media (min-width: 640px){
     html { font-size: 112%; }
-}
+
 
     .column {
         float: left;
