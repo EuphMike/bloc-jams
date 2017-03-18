@@ -5,7 +5,7 @@ body.landing{
 .hero-content{
     position: relative;
     min-height: 600px;
-    background-image: url(bloc-jams/styles/assets/images/bloc_jams_bg.jpg);
+    background-image: url(../assets/images/bloc_jams_bg.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
