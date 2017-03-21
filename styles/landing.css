@@ -32,9 +32,23 @@ body.landing{
 }
 
 .point{
-    position: relative;
-    padding: 2rem;
-    text-align: center;
+     position: relative;
+     padding: 2rem;
+     text-align: center;
+     opacity: 0;
+     -webkit-transform: scaleX(1.9) translateY(12rem);
+     -moz-transform: scaleX(1.9) translateY(12rem);
+     transform: scaleX(1.9) translateY(12rem);
+     -webkit-transition: all 0.25s ease-in-out;
+     -moz-transition: all 0.25s ease-in-out;
+     transition: all 0.25s ease-in-out;
+     -webkit-transition-delay: 0.2s;
+     -moz-transition-delay: 0.2s;
+     transition-delay: 0.2s;
+     -webkit-transition-timing-function: ease-out;
+     -moz-transition-timing-function: ease-out;
+     transition-timing-function: ease-out;
+    
 }
 
 .point .point-title{
