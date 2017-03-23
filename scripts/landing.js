@@ -12,7 +12,6 @@
  
      };
      
- };
 
  window.onload = function() {
      var sellingPoints = document.getElementsByClassName('selling-points')[0];
