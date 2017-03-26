@@ -1,4 +1,4 @@
-  // Example Album
+ // Example Album
  var albumPicasso = {
      title: 'The Colors',
      artist: 'Pablo Picasso',
@@ -29,8 +29,9 @@
          { title: 'Wrong phone number', duration: '2:15'}
      ]
  };
+    
 
- var createSongRow = function(songNumber, songName, songLength) {
+var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
       + '  <td class="song-item-number">' + songNumber + '</td>'
@@ -42,8 +43,7 @@
      return template;
  };
 
-
- var setCurrentAlbum = function(album) {
+  var setCurrentAlbum = function(album) {
      // #1
      var albumTitle = document.getElementsByClassName('album-view-title')[0];
      var albumArtist = document.getElementsByClassName('album-view-artist')[0];
