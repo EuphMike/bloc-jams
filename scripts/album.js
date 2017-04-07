@@ -1,11 +1,10 @@
 var createSongRow = function(songNumber, songName, songLength) {
-     var template =
+     var template = 
         '<tr class="album-view-song-item">'
       + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
       + '</tr>'
-      ;
  
      var $row = $(template);
     
@@ -30,7 +29,7 @@ var createSongRow = function(songNumber, songName, songLength) {
      };
     
      var onHover = function(event){
-         var songNumberCell = parseInt($(this).find('.song-item-number'));
+         var songNumberCell = $(this).find('.song-item-number');
          var songNumber = parseInt(songNumberCell.attr('data-song-number'));
          
          if (songNumber !== currentlyPlayingSongNumber) {
@@ -40,7 +39,7 @@ var createSongRow = function(songNumber, songName, songLength) {
      };
          
      var offHover = function(event) {
-         var songNumberCell = parseInt($(this).find('.song-item-number')); 
+         var songNumberCell = $(this).find('.song-item-number'); 
          var songNumber = parseInt(songNumberCell.attr('data-song-number'));
          
          if (songNumber !== currentlyPlayingSongNumber) {
