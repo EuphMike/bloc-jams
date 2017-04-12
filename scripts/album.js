@@ -18,10 +18,29 @@ var setSong = function (songNumber) {
      if (currentSoundFile) {
          currentSoundFile.setVolume(volume);
      }
- };
+ }; 
 
-// this function sets the checks to see if there is a current sound file, and then sets the volume // 
+var togglePLayFromPlayerBar = function(){
 
+        if (currentSoundFile.isPaused()  && $mainControlsPlayPause(playerBarPlayButton)) 
+        // current song is paused  and player bar has play button clicked in  
+            {
+                $(this).html(pauseButtonTemplate);
+                // change the song number cell from play to pause  
+                $mainControlsPlayPause.html(playerBarPauseButton);
+                // changes HTML of player bar's button to pause 
+                currentSoundFile.play();
+                // Plays the song 
+            } else if ( currentSoundFile !== null && $mainControlsPlayPause(playerBarPauseButton)){ 
+                //song is playing(exists) and pause button is clicked on player bar
+                 $(this).html(playButtonTemplateButtonTemplate);
+                //changes the song number cell to pause button
+                $mainControlsPlayPause.html(playerBarPlayButton);
+                //change the HTML of the player bar's button to play'
+                currentSoundFile.pause();
+                // pauses the song 
+   };
+   
 var getSongNumberCell = function(number) {
     return $('.song-item-number[data-song-number="' + number + '"]');
 };
@@ -193,9 +212,13 @@ var currentSoundFile = null;
 var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
- 
+var $mainControlsPlayPause = $('.main-controls .play-pause');
+    // add a Variable Holds the $('.main-controls .play-pause') selector // 
 $(document).ready(function() {
      setCurrentAlbum(albumPicasso);
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
- });
+     $mainControlsPlayPause.click(togglePLayFromPlayerBar());
+      // add a `click()` event to it in the $(document).ready() block with toggleFromPlayerBar() as event handler. // 
+    });
+ };
