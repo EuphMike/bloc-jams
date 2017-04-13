@@ -11,35 +11,28 @@ var setSong = function (songNumber) {
         preload: true
     });
     setVolume(currentVolume); 
-    // sets the volume based on the below function of the song to whatever the current Volume variable is set to, as of checkpoint 20 simply 80/100. 
   };
 
- var setVolume = function(volume) {
+var setVolume = function(volume) {
      if (currentSoundFile) {
          currentSoundFile.setVolume(volume);
      }
  }; 
 
-var togglePLayFromPlayerBar = function(){
+var togglePlayFromPlayerBar = function(){
 
-        if (currentSoundFile.isPaused()  && $mainControlsPlayPause(playerBarPlayButton)) 
-        // current song is paused  and player bar has play button clicked in  
-            {
+        if (currentSoundFile.isPaused() && $mainControlsPlayPause(playerBarPauseButton)){
                 $(this).html(pauseButtonTemplate);
-                // change the song number cell from play to pause  
                 $mainControlsPlayPause.html(playerBarPauseButton);
-                // changes HTML of player bar's button to pause 
                 currentSoundFile.play();
-                // Plays the song 
-            } else if ( currentSoundFile !== null && $mainControlsPlayPause(playerBarPauseButton)){ 
-                //song is playing(exists) and pause button is clicked on player bar
-                 $(this).html(playButtonTemplateButtonTemplate);
-                //changes the song number cell to pause button
+                
+            } else if (currentSoundFile !== null && $mainControlsPlayPause(playerBarPauseButton)){ 
+                $(this).html(playButtonTemplate);
                 $mainControlsPlayPause.html(playerBarPlayButton);
-                //change the HTML of the player bar's button to play'
                 currentSoundFile.pause();
-                // pauses the song 
-   };
+ 
+   }
+};
    
 var getSongNumberCell = function(number) {
     return $('.song-item-number[data-song-number="' + number + '"]');
@@ -51,11 +44,12 @@ var createSongRow = function(songNumber, songName, songLength) {
       + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
-      + '</tr>'
+      + '</tr>';
  
      var $row = $(template);
     
      var clickHandler = function() {
+         
          var songNumber = parseInt($(this).attr('data-song-number'));
          
          if (currentlyPlayingSongNumber !== null) {
@@ -70,18 +64,15 @@ var createSongRow = function(songNumber, songName, songLength) {
          } else if (currentlyPlayingSongNumber === songNumber) {
              
              if (currentSoundFile.isPaused()) {
-                 // ^ if the current song is paused;
                  $(this).html(pauseButtonTemplate); 
-                     // sets  to pause button icon on the main page Application
                  $('main-controls .play-pause').html(playerBarPauseButton); 
-                     // sets controls floating player bar to pause / match the page application
                  currentSoundFile.play(); 
-                     // plays the current song using Buzz's API 
+                 
              } else {
-                  // ^^ if it is not paused 
-                  $(this).html(playButtonTemplate) 
+               
+                  $(this).html(playButtonTemplate);
                      // sets to play button icon
-                  $('main-controls .play-pause').html(playerBarPlayButton)
+                  $('main-controls .play-pause').html(playerBarPlayButton);
                      // sets controls on floating player bar to it's play button icon
                   currentSoundFile.pause(); 
                      // pauses the current sound file 
@@ -174,7 +165,7 @@ var previousSong = function() {
     currentSongIndex--;
 
     if (currentSongIndex < 0 ) {
-        currentSongIndex = currentAlbum.songs.length - 1
+        currentSongIndex = currentAlbum.songs.length - 1;
     }
     
     var lastSongNumber = currentlyPlayingSongNumber;
@@ -213,12 +204,10 @@ var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 var $mainControlsPlayPause = $('.main-controls .play-pause');
-    // add a Variable Holds the $('.main-controls .play-pause') selector // 
+    
 $(document).ready(function() {
      setCurrentAlbum(albumPicasso);
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
-     $mainControlsPlayPause.click(togglePLayFromPlayerBar());
-      // add a `click()` event to it in the $(document).ready() block with toggleFromPlayerBar() as event handler. // 
+     $mainControlsPlayPause.click(togglePlayFromPlayerBar());
     });
- };
